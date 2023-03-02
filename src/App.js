@@ -5,19 +5,21 @@ import './App.css';
 
 function App() {
 
-  const [textValue, setText] = useState(null)
+  const [textValue, setText] = useState("")
 
   useEffect(() => {
     fetch(`${API_URL}/${API_KEY}`)
     .then(async (response) => response.json())
-    .then(res => console.log(res))
+    .then(res => setText(res))
     .catch(err => console.log(err)
     )
-  }, [])  
+  }, [])
+
+  console.log(textValue);
 
   return (
     <div className="App">
-      <TextArea />
+      <TextArea data={textValue}/>
     </div>
   );
 }
