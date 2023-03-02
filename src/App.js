@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { API_KEY, API_URL } from './api';
 import './App.css';
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
   const [textValue, setText] = useState(null)
 
   useEffect(() => {
-    fetch(`https://frontendtest.azurewebsites.net/Template/{bf3c866c-9593-4799-9dda-90bac7996913}`)
+    fetch(`${API_URL}/${API_KEY}`)
     .then(async (response) => response.json())
     .then(res => console.log(res))
     .catch(err => console.log(err)
