@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { API_KEY, API_URL } from './api';
+import TextArea from './components/textArea';
 import './App.css';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello!</h1>
+      <TextArea />
     </div>
   );
 }
