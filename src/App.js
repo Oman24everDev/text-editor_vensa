@@ -15,11 +15,12 @@ function App() {
     )
   }, [])
 
-  console.log(textValue);
+  // console.log(textValue);
+
 
   return (
     <div className="App">
-      <TextArea data={textValue}/>
+      <TextArea data={textValue} />
     </div>
   );
 }
