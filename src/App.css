@@ -13,7 +13,7 @@
 }
 
 .generate-btn, .save-btn {
-    margin-right: 10px;
+    margin: 15px 10px 0;
     padding: 10px;
     border-radius: 5px;
     border: none;
