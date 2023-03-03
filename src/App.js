@@ -15,26 +15,23 @@ function App() {
       });
   }
 
+  const handleSave = () => {
+    console.log(`Saving template: ${data.template}`);
+    setText('');
+  };
+
   const handleChange = (event) => {
     setText(event.target.value);
   }
 
-  // useEffect(() => {
-  //   fetch()
-  //     .then(async (response) => response.json())
-  //     .then(res => setText(res))
-  //     .catch(err => console.log(err)
-  //     )
-  // }, [])
-
-  // console.log(data);
+  
 
   return (
     <div className="App">
       <textarea name="" id="textfield" cols="65" rows="10" value={data.template} onChange={handleChange} ></textarea>
       <div>
         <button className='generate-btn' onClick={handleButtonClick}>Generate</button>
-        <button className='save-btn'>Save</button>
+        <button className='save-btn' onClick={handleSave}>Save</button>
       </div>
 
     </div>
