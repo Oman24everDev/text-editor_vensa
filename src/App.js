@@ -19,23 +19,21 @@ function App() {
   };
 
 
-  useEffect(() => {
-    const stringData = JSON.stringify(`${data}`);
-    setCharCount(stringData.length);
-  }, [data]);
-
-
   const handleSave = () => {
     console.log(`Saving template: ${data}`);
   };
 
 
-
   const handleChange = (event) => {
-    setText(event.target.value);
-    setCharCount(event.target.value.length);
-  };
+    const value = event.target.value;
 
+    if (value.length) {
+    setText(value);
+    setCharCount(value.length);
+    event.preventDefault();
+    return;
+    }
+  };
 
 
   return (
