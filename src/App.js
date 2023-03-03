@@ -20,7 +20,19 @@ function App() {
 
 
   const handleSave = () => {
-    console.log(`Saving template: ${data}`);
+    fetch(`${API_URL}/{data}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ data })
+    })
+    .then(response => {
+      console.log('Template saved successfully!');
+    })
+    .catch(error => {
+      console.error('Error saving template:', error);
+    });
   };
 
 
