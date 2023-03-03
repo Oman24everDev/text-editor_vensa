@@ -8,14 +8,15 @@ function App() {
   const [charCount, setCharCount] = useState(0);
 
 
-  const handleButtonClick = () => {
-    fetch(`${API_URL}/${API_KEY}`)
-      .then(async (response) => response.json())
-      .then(data => { setText(data); })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }
+  const handleButtonClick = async () => {
+    try{
+      const response = await fetch(`${API_URL}/${API_KEY}`);
+      const data = await response.json();
+      setText(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
 
   useEffect(() => {
@@ -25,14 +26,16 @@ function App() {
 
 
   const handleSave = () => {
-    console.log(`Saving template: ${data.template}`);
+    console.log(`Saving template: ${data}`);
   };
 
+
+
   const handleChange = (event) => {
-    const newText = event.target.value;
-    setText(newText.slice(0, 160));
-    setCharCount(newText.length);
+    setText(event.target.value);
+    setCharCount(event.target.value.length);
   };
+
 
 
   return (
