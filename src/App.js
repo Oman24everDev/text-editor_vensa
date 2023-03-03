@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { API_KEY, API_URL } from './api';
+import MergeFieldTextarea from './components/MergeFields';
 import './App.css';
 
 function App() {
@@ -54,11 +55,12 @@ function App() {
         id="textfield" cols="65" rows="10"
         value={data.template}
         onChange={handleChange}
-        style={{ color: charCount > 160 ? "red" : "gray" }}>   
+        style={{ color: charCount > 160 ? "red" : "gray" }}>
+        <MergeFieldTextarea />
       </textarea>
       <span>{charCount} of 160 characters</span>
       <div>
-        <button className='generate-btn' onClick={handleButtonClick}>Generate</button>
+        <button className='generate-btn' onClick={handleButtonClick}>Load</button>
         <button className='save-btn' onClick={handleSave}>Save</button>
       </div>
 
