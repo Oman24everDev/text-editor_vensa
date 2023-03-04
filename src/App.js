@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { API_KEY, API_URL } from './api';
-import MergeFieldTextarea from './components/MergeFields';
+import DropdownMenu from './components/MergeFields';
 import './App.css';
 
 function App() {
@@ -48,6 +48,7 @@ function App() {
     }
   };
 
+  console.log(data);
 
   return (
     <div className="App">
@@ -56,8 +57,10 @@ function App() {
         value={data.template}
         onChange={handleChange}
         style={{ color: charCount > 160 ? "red" : "gray" }}>
-        <MergeFieldTextarea />
+       
       </textarea>
+      <DropdownMenu data={data} />
+   
       <span>{charCount} of 160 characters</span>
       <div>
         <button className='generate-btn' onClick={handleButtonClick}>Load</button>
